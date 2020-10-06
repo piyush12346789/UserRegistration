@@ -18,6 +18,10 @@ namespace UserRegistration
             string eMail = Console.ReadLine();
             bool eMailResult = validateUserRegistration.ValidateEmail(eMail);
             validateUserRegistration.PrintResult(eMailResult);
+            Console.WriteLine("Enter your mobile number : ");
+            string mobileNo = Console.ReadLine();
+            bool mobileNoResult = validateUserRegistration.ValidateMobileNo(mobileNo);
+            validateUserRegistration.PrintResult(mobileNoResult);
         }
     }
 }
