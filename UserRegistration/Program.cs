@@ -10,6 +10,10 @@ namespace UserRegistration
             string firstName = Console.ReadLine();
             bool fNameResult = validateUserRegistration.ValidateFirstName(firstName);
             validateUserRegistration.PrintResult(fNameResult);
+            Console.WriteLine("Enter your last name : ");
+            string lastName = Console.ReadLine();
+            bool lNameResult = validateUserRegistration.ValidateLastName(lastName);
+            validateUserRegistration.PrintResult(lNameResult);
         }
     }
 }
