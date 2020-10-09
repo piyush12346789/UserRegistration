@@ -26,6 +26,12 @@ namespace UserRegistration
             string password = Console.ReadLine();
             bool passwordResult = validateUserRegistration.ValidatePassword(password);
             validateUserRegistration.PrintResult(passwordResult);
+            Console.WriteLine("Checking for sample mails :");
+            foreach (string mail in validateUserRegistration.GetList())
+            {
+                Console.Write(mail + " : ");
+                validateUserRegistration.PrintResult(validateUserRegistration.ValidateEmail2(mail));
+            }
         }
     }
 }
