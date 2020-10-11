@@ -4,12 +4,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 namespace UserRegistration
 {
-    class ValidateUserRegistration
+    public class ValidateUserRegistration
     {
         private List<string> sampleMails = new List<string>()
         {
             "abc@yahoo.com",
-            "abc-100@yahoo.com",
             "abc-100@yahoo.com",
             "abc.100@yahoo.com",
             "abc111@abc.com",
@@ -49,7 +48,6 @@ namespace UserRegistration
         {
             return Regex.IsMatch(email, Regex_Email2);
         }
-
         public void PrintResult(bool result)
         {
             if (result)
