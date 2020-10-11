@@ -23,30 +23,72 @@ namespace UserRegistration
         private static string Regex_Email = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
         private static string Regex_MobileNo = "^[1-9]{1}[0-9]{1,2}[ ][1-9]{1}[0-9]{9}$";
         private static string Regex_Password = "^(?=.*[0-9])(?=.*[A-Z])(?=[^!@#$%&+-.]*[!@#$%&+-.][^!@#$%&+-.]*$)[\\S]{8,}$";
-        private static string Regex_Email2 = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
-        public bool ValidateFirstName(string FN)
+        private static string Regex_Email2 = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";        public bool ValidateFirstName(string FN)
         {
-            return Regex.IsMatch(FN, Regex_FirstName);
+            
+            if(Regex.IsMatch(FN, Regex_FirstName))
+            {
+                return true;
+            }
+            else
+            {
+                throw new URCustomException(URCustomException.ExceptionType.INVALID_FIRST_NAME, "Invalid first name.");
+            }
         }
         public bool ValidateLastName(string LN)
         {
-            return Regex.IsMatch(LN, Regex_LastName);
+            if (Regex.IsMatch(LN, Regex_LastName))
+            {
+                return true;
+            }
+            else
+            {
+                throw new URCustomException(URCustomException.ExceptionType.INVALID_LAST_NAME, "Invalid last name.");
+            }
         }
         public bool ValidateEmail(string Email)
         {
-            return Regex.IsMatch(Email, Regex_Email);
+            if(Regex.IsMatch(Email, Regex_Email))
+            {
+                return true;
+            }
+            else
+            {
+                throw new URCustomException(URCustomException.ExceptionType.INVALID_EMAIL, "Invalid email address.");
+            }
         }
         public bool ValidateMobileNo(string MobileNo)
         {
-            return Regex.IsMatch(MobileNo, Regex_MobileNo);
+            if(Regex.IsMatch(MobileNo, Regex_MobileNo))
+            {
+                return true;
+            }
+            else
+            {
+                throw new URCustomException(URCustomException.ExceptionType.INVALID_MOBILENO, "Invalid mobile no.");
+            }
         }
         public bool ValidatePassword(string Password)
         {
-            return Regex.IsMatch(Password, Regex_Password);
+            if(Regex.IsMatch(Password, Regex_Password))
+            {
+                return true;
+            }
+            else
+            {
+                throw new URCustomException(URCustomException.ExceptionType.INVALID_PASSWORD, "Invalid password.");
+            }
         }
         public bool ValidateEmail2(string email)
         {
-            return Regex.IsMatch(email, Regex_Email2);
+            if(Regex.IsMatch(email, Regex_Email2))
+            {
+                return true;
+            }
+            else
+            {
+                throw new URCustomException(URCustomException.ExceptionType.INVALID_EMAIL, "Invalid email address.");
+            }
         }
         public void PrintResult(bool result)
         {
