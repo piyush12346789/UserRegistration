@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace UserRegistration
 {
     public class URCustomException : Exception
@@ -14,7 +13,7 @@ namespace UserRegistration
             INVALID_MOBILENO,
             INVALID_PASSWORD
         }
-        private readonly ExceptionType type;
+        private ExceptionType type;
         public URCustomException(ExceptionType Type, String message) : base(message)
         {
             this.type = Type;

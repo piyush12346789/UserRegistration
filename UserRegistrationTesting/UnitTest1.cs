@@ -23,7 +23,8 @@ namespace UserRegistrationTestings
         public void GivenUserLastName_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string lastName = "Gupta";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string lastName = "Gupta";
             //Act
             bool result = user.ValidateFirstName(lastName);
             //Assert
@@ -33,7 +34,8 @@ namespace UserRegistrationTestings
         public void GivenEmailId_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string email = "piyushgupta1234@gmail.com";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string email = "piyushgupta1234@gmail.com";
             //Act
             bool result = user.ValidateEmail(email);
             //Assert
@@ -43,7 +45,8 @@ namespace UserRegistrationTestings
         public void GivenMobileNumber_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string mobileNumber = "91 6234517890";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string mobileNumber = "91 6234517890";
             //Act
             bool result = user.ValidateMobileNo(mobileNumber);
             //Assert
@@ -53,7 +56,8 @@ namespace UserRegistrationTestings
         public void GivenPassword_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string password = "Qwerty@123";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string password = "Qwerty@123";
             //Act
             bool result = user.ValidatePassword(password);
             //Assert
@@ -61,54 +65,89 @@ namespace UserRegistrationTestings
         }
         //Sad Test Cases(Test Cases Fail The Entry)
         [TestMethod]
-        public void GivenUserFistName_WhenValidate_ShouldReturnFalse()
+        public void GivenUserFistName_WhenValidate_Should_Throw_URCustomException_Indicating_Invalid_FirstName()
         {
-            //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string firstName = "Piyush";
-            //Act
-            bool result = user.ValidateFirstName(firstName);
-            //Assert
-            Assert.IsFalse(result);
+            try
+            {
+                //Arrange
+                ValidateUserRegistration user = new ValidateUserRegistration();
+                string firstName = "piyush";
+                //Act
+                bool result = user.ValidateFirstName(firstName);
+            }
+            catch (URCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid first name.", e.Message);
+            }
         }
         [TestMethod]
-        public void GivenUserLastName_WhenValidate_ShouldReturnFalse()
+        public void GivenUserLastName_WhenValidate_Should_Throw_URCustomException_Indicating_Invalid_LastName()
         {
-            //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string lastName = "Gupta";
-            //Act
-            bool result = user.ValidateFirstName(lastName);
-            //Assert
-            Assert.IsFalse(result);
+            try
+            {
+                //Arrange
+                ValidateUserRegistration user = new ValidateUserRegistration();
+                string lastName = "gupta";
+                //Act
+                bool result = user.ValidateLastName(lastName);
+            }
+            catch (URCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid last name.", e.Message);
+            }
         }
         [TestMethod]
-        public void GivenEmailId_WhenValidate_ShouldReturnFalse()
+        public void GivenUserEmail_WhenValidate_Should_Throw_URCustomException_Indicating_Invalid_Email()
         {
-            //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string email = "piyushgupta01@gmail.com";
-            //Act
-            bool result = user.ValidateEmail(email);
-            //Assert
-            Assert.IsFalse(result);
+            try
+            {
+                //Arrange
+                ValidateUserRegistration user = new ValidateUserRegistration();
+                string email = "piyushguptagmail.com";
+                //Act
+                bool result = user.ValidateEmail(email);
+            }
+            catch (URCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid email address.", e.Message);
+            }
         }
         [TestMethod]
-        public void GivenMobileNumber_WhenValidate_ShouldReturnFalse()
+        public void GivenUserMobileNumber_WhenValidate_Should_Throw_URCustomException_Indicating_Invalid_MobileNo()
         {
-            //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string mobileNumber = "91 6123453214";
-            //Act
-            bool result = user.ValidateMobileNo(mobileNumber);
-            //Assert
-            Assert.IsFalse(result);
+            try
+            {
+                //Arrange
+                ValidateUserRegistration user = new ValidateUserRegistration();
+                string mobileNumber = "11 1123453214";
+                //Act
+                bool result = user.ValidateMobileNo(mobileNumber);
+            }
+            catch (URCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid mobile number.", e.Message);
+            }
         }
         [TestMethod]
-        public void GivenPassword_WhenValidate_ShouldReturnFalse()
+        public void GivenUserPassword_WhenValidate_Should_Throw_URCustomException_Indicating_Invalid_Password()
         {
-            //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string password = "Pqwert@123";
-            //Act
-            bool result = user.ValidatePassword(password);
-            //Assert
-            Assert.IsFalse(result);
+            try
+            {
+                //Arrange
+                ValidateUserRegistration user = new ValidateUserRegistration();
+                string password = "pqwert@123";
+                //Act
+                bool result = user.ValidatePassword(password);
+            }
+            catch (URCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("Invalid password.", e.Message);
+            }
         }
         [TestMethod]
         [DataRow("abc@yahoo.com")]
@@ -123,7 +162,7 @@ namespace UserRegistrationTestings
         public void GivenEmailIds_WhenValidate_ShouldReturnTrue(string email)
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string mobileNumber = "91 7654321890";
+            ValidateUserRegistration user = new ValidateUserRegistration();
             //Act
             bool result = user.ValidateEmail2(email);
             //Assert
