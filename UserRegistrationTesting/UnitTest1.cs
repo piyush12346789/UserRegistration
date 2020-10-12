@@ -23,7 +23,8 @@ namespace UserRegistrationTestings
         public void GivenUserLastName_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string lastName = "Gupta";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string lastName = "Gupta";
             //Act
             bool result = user.ValidateFirstName(lastName);
             //Assert
@@ -33,7 +34,8 @@ namespace UserRegistrationTestings
         public void GivenEmailId_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string email = "piyushgupta1234@gmail.com";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string email = "piyushgupta1234@gmail.com";
             //Act
             bool result = user.ValidateEmail(email);
             //Assert
@@ -43,7 +45,8 @@ namespace UserRegistrationTestings
         public void GivenMobileNumber_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string mobileNumber = "91 6234517890";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string mobileNumber = "91 6234517890";
             //Act
             bool result = user.ValidateMobileNo(mobileNumber);
             //Assert
@@ -53,7 +56,8 @@ namespace UserRegistrationTestings
         public void GivenPassword_WhenValidate_ShouldReturnTrue()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string password = "Qwerty@123";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string password = "Qwerty@123";
             //Act
             bool result = user.ValidatePassword(password);
             //Assert
@@ -64,7 +68,8 @@ namespace UserRegistrationTestings
         public void GivenUserFistName_WhenValidate_ShouldReturnFalse()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string firstName = "Piyush";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string firstName = "piyush";
             //Act
             bool result = user.ValidateFirstName(firstName);
             //Assert
@@ -74,7 +79,8 @@ namespace UserRegistrationTestings
         public void GivenUserLastName_WhenValidate_ShouldReturnFalse()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string lastName = "Gupta";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string lastName = "gupta";
             //Act
             bool result = user.ValidateFirstName(lastName);
             //Assert
@@ -84,7 +90,8 @@ namespace UserRegistrationTestings
         public void GivenEmailId_WhenValidate_ShouldReturnFalse()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string email = "piyushgupta01@gmail.com";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string email = "piyushgupta@gmail.com";
             //Act
             bool result = user.ValidateEmail(email);
             //Assert
@@ -94,7 +101,8 @@ namespace UserRegistrationTestings
         public void GivenMobileNumber_WhenValidate_ShouldReturnFalse()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string mobileNumber = "91 6123453214";
+            ValidateUserRegistration user = new ValidateUserRegistration();
+            string mobileNumber = "91 5123453214";
             //Act
             bool result = user.ValidateMobileNo(mobileNumber);
             //Assert
@@ -104,7 +112,7 @@ namespace UserRegistrationTestings
         public void GivenPassword_WhenValidate_ShouldReturnFalse()
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string password = "Pqwert@123";
+            ValidateUserRegistration user = new ValidateUserRegistration(); string password = "pqwert@123";
             //Act
             bool result = user.ValidatePassword(password);
             //Assert
@@ -123,7 +131,7 @@ namespace UserRegistrationTestings
         public void GivenEmailIds_WhenValidate_ShouldReturnTrue(string email)
         {
             //Arrange
-            ValidateUserRegistration user = new ValidateUserRegistration(); string mobileNumber = "91 7654321890";
+            ValidateUserRegistration user = new ValidateUserRegistration();
             //Act
             bool result = user.ValidateEmail2(email);
             //Assert
